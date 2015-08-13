@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>DevelopmentTeam</key>
+    <string>FQ4NLM7MD5</string>
+    <key>Workspace</key>
+    <string>MBank.xcworkspace</string>
+    <key>Project</key>
+    <string>MBank.xcodeproj</string>
+    <key>PathPrefix</key>
+    <string>MBank</string>
+</dict>
+</plist>

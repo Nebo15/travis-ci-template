@@ -1,0 +1,35 @@
+language: objective-c
+osx_image: xcode6.4
+sudo: false
+cache:
+  bundler: true
+  cocoapods: true
+before_install:
+    - .travis/scripts/prepare.sh
+before_script:
+    - pod install
+    - .travis/scripts/keychain/add-key.sh
+    - .travis/scripts/xcode/download-profiles.sh
+script:
+    - .travis/scripts/build.sh -a ${APPLICATION} -d enterprise -e ${TRAVIS_BRANCH}
+after_script:
+    - .travis/scripts/keychain/remove-key.sh
+env:
+    global:
+        - 'KEYCHAIN_PATH="~/Library/Keychains/ios-build.keychain"'
+        - 'BUILD_DIR="build"'
+        - 'APPSTORE_LOGIN="ci@nebo15.com"'
+        - secure: "key_here"
+        - secure: "key_here"
+        - secure: "key_here"
+        - secure: "key_here"
+    matrix:
+        - 'APPLICATION="MBank"'
+        - 'APPLICATION="BankVRN"'
+notifications:
+    hipchat:
+        rooms:
+            - secure: "key_here"
+        template:
+            - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="https://builds.nebo15.com/history">Downloads</a>/<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
+        format: html
