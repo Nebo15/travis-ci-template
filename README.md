@@ -1,7 +1,8 @@
 # travis-ci-template
 This is how we build our apps for internal usage
 
-Our CI process includes:
+## Our CI process includes:
+
 1. On each commit GitHub tells Travis to start build;
 2. Travis parallelize build for each White-Label of our app (we have few);
 3. Travis uses my scripts to set-up environment: tell project what servers should it request (we have development, staging, production servers), load provisioning profiles from the iTunes Developer, find and set the right profile for current builds (every environment have own bundle ID), change application name, development team id, changes entitlements (we have Today Widget) and many more.
